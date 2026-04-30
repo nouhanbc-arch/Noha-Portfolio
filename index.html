@@ -1,0 +1,1123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Noha Ben Chiboub — Marketing Portfolio</title>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --blue-50: #E6F1FB;
+    --blue-100: #B5D4F4;
+    --blue-200: #85B7EB;
+    --blue-400: #378ADD;
+    --blue-600: #185FA5;
+    --blue-800: #0C447C;
+    --blue-900: #042C53;
+    --text: #0f1923;
+    --text-muted: #4a5568;
+    --bg: #f7f9fc;
+    --white: #ffffff;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'DM Sans', sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    line-height: 1.6;
+  }
+
+  /* NAV */
+  nav {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 100;
+    padding: 1.2rem 4rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: rgba(247, 249, 252, 0.92);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--blue-100);
+  }
+
+  .nav-logo {
+    font-family: 'DM Serif Display', serif;
+    font-size: 1.4rem;
+    color: var(--blue-800);
+    letter-spacing: -0.02em;
+  }
+
+  .nav-links { display: flex; gap: 2.5rem; list-style: none; }
+  .nav-links a {
+    text-decoration: none;
+    font-size: 0.9rem;
+    font-weight: 400;
+    color: var(--text-muted);
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    transition: color 0.2s;
+  }
+  .nav-links a:hover { color: var(--blue-600); }
+
+  /* HERO */
+  .hero {
+    min-height: 100vh;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+    padding: 6rem 4rem 4rem;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .hero::before {
+    content: '';
+    position: absolute;
+    top: -100px; right: -200px;
+    width: 700px; height: 700px;
+    border-radius: 50%;
+    background: var(--blue-50);
+    z-index: 0;
+  }
+
+  .hero::after {
+    content: '';
+    position: absolute;
+    bottom: -80px; left: -100px;
+    width: 400px; height: 400px;
+    border-radius: 50%;
+    background: var(--blue-100);
+    opacity: 0.4;
+    z-index: 0;
+  }
+
+  .hero-content { position: relative; z-index: 1; }
+
+  .hero-tag {
+    display: inline-block;
+    background: var(--blue-50);
+    color: var(--blue-600);
+    border: 1px solid var(--blue-100);
+    border-radius: 2rem;
+    padding: 0.4rem 1rem;
+    font-size: 0.8rem;
+    font-weight: 500;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    margin-bottom: 1.5rem;
+  }
+
+  .hero h1 {
+    font-family: 'DM Serif Display', serif;
+    font-size: clamp(2.8rem, 5vw, 4.5rem);
+    line-height: 1.08;
+    letter-spacing: -0.02em;
+    color: var(--blue-900);
+    margin-bottom: 1.5rem;
+  }
+
+  .hero h1 em {
+    font-style: italic;
+    color: var(--blue-400);
+  }
+
+  .hero-desc {
+    font-size: 1.05rem;
+    color: var(--text-muted);
+    max-width: 480px;
+    line-height: 1.75;
+    margin-bottom: 2.5rem;
+  }
+
+  .hero-cta {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+  }
+
+  .btn-primary {
+    background: var(--blue-800);
+    color: white;
+    border: none;
+    padding: 0.85rem 2rem;
+    border-radius: 0.4rem;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 0.9rem;
+    font-weight: 500;
+    cursor: pointer;
+    text-decoration: none;
+    display: inline-block;
+    transition: background 0.2s, transform 0.1s;
+  }
+  .btn-primary:hover { background: var(--blue-900); transform: translateY(-1px); }
+
+  .btn-outline {
+    background: transparent;
+    color: var(--blue-800);
+    border: 1.5px solid var(--blue-200);
+    padding: 0.85rem 2rem;
+    border-radius: 0.4rem;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 0.9rem;
+    font-weight: 500;
+    cursor: pointer;
+    text-decoration: none;
+    display: inline-block;
+    transition: border-color 0.2s, background 0.2s;
+  }
+  .btn-outline:hover { border-color: var(--blue-400); background: var(--blue-50); }
+
+  .hero-visual {
+    position: relative;
+    z-index: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .hero-card {
+    background: white;
+    border: 1px solid var(--blue-100);
+    border-radius: 1.5rem;
+    padding: 2.5rem;
+    max-width: 360px;
+    width: 100%;
+    box-shadow: 0 20px 60px rgba(55, 138, 221, 0.1);
+    position: relative;
+  }
+
+  .hero-avatar {
+    width: 72px; height: 72px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, var(--blue-400), var(--blue-800));
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'DM Serif Display', serif;
+    font-size: 1.6rem;
+    color: white;
+    margin-bottom: 1.2rem;
+    letter-spacing: -0.02em;
+  }
+
+  .hero-card h3 {
+    font-family: 'DM Serif Display', serif;
+    font-size: 1.3rem;
+    color: var(--blue-900);
+    margin-bottom: 0.3rem;
+  }
+
+  .hero-card .card-role {
+    font-size: 0.85rem;
+    color: var(--blue-600);
+    margin-bottom: 1.5rem;
+  }
+
+  .stat-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0.75rem;
+  }
+
+  .stat-box {
+    background: var(--blue-50);
+    border-radius: 0.75rem;
+    padding: 1rem;
+    text-align: center;
+  }
+
+  .stat-num {
+    font-family: 'DM Serif Display', serif;
+    font-size: 1.6rem;
+    color: var(--blue-800);
+    display: block;
+  }
+
+  .stat-label {
+    font-size: 0.72rem;
+    color: var(--blue-600);
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    font-weight: 500;
+  }
+
+  .skill-tags {
+    margin-top: 1.2rem;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.4rem;
+  }
+
+  .skill-tag {
+    background: white;
+    border: 1px solid var(--blue-100);
+    color: var(--blue-800);
+    font-size: 0.72rem;
+    padding: 0.25rem 0.65rem;
+    border-radius: 2rem;
+    font-weight: 500;
+  }
+
+  /* SECTIONS */
+  section { padding: 6rem 4rem; }
+
+  .section-label {
+    font-size: 0.75rem;
+    font-weight: 500;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--blue-400);
+    margin-bottom: 0.75rem;
+  }
+
+  .section-title {
+    font-family: 'DM Serif Display', serif;
+    font-size: clamp(2rem, 3vw, 2.8rem);
+    color: var(--blue-900);
+    margin-bottom: 1rem;
+    line-height: 1.15;
+    letter-spacing: -0.02em;
+  }
+
+  .section-desc {
+    color: var(--text-muted);
+    font-size: 1rem;
+    max-width: 520px;
+    line-height: 1.75;
+    margin-bottom: 3rem;
+  }
+
+  /* ABOUT */
+  #about {
+    background: white;
+  }
+
+  .about-grid {
+    display: grid;
+    grid-template-columns: 1.2fr 1fr;
+    gap: 5rem;
+    align-items: start;
+  }
+
+  .about-text p {
+    color: var(--text-muted);
+    line-height: 1.85;
+    margin-bottom: 1.2rem;
+    font-size: 1rem;
+  }
+
+  .about-aside { display: flex; flex-direction: column; gap: 1.5rem; }
+
+  .aside-card {
+    border: 1px solid var(--blue-100);
+    border-radius: 1rem;
+    padding: 1.5rem;
+  }
+
+  .aside-card h4 {
+    font-family: 'DM Serif Display', serif;
+    font-size: 1rem;
+    color: var(--blue-800);
+    margin-bottom: 0.75rem;
+  }
+
+  .lang-list { list-style: none; }
+  .lang-list li {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.4rem 0;
+    border-bottom: 1px solid var(--blue-50);
+    font-size: 0.9rem;
+  }
+  .lang-list li:last-child { border: none; }
+  .lang-level {
+    font-size: 0.75rem;
+    color: var(--blue-600);
+    background: var(--blue-50);
+    padding: 0.15rem 0.6rem;
+    border-radius: 2rem;
+    font-weight: 500;
+  }
+
+  /* PROJECTS */
+  #projects { background: var(--bg); }
+
+  .projects-note {
+    background: var(--blue-50);
+    border: 1px dashed var(--blue-200);
+    border-radius: 0.75rem;
+    padding: 1.2rem 1.5rem;
+    font-size: 0.9rem;
+    color: var(--blue-800);
+    margin-bottom: 2.5rem;
+    max-width: 700px;
+  }
+
+  .projects-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 1.5rem;
+  }
+
+  .project-card {
+    background: white;
+    border: 1px solid var(--blue-100);
+    border-radius: 1.25rem;
+    overflow: hidden;
+    transition: transform 0.2s, box-shadow 0.2s;
+  }
+
+  .project-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 16px 40px rgba(55, 138, 221, 0.12);
+  }
+
+  .project-header {
+    padding: 2rem 2rem 1.2rem;
+    border-bottom: 1px solid var(--blue-50);
+  }
+
+  .project-company {
+    font-size: 0.72rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--blue-400);
+    font-weight: 500;
+    margin-bottom: 0.5rem;
+  }
+
+  .project-title {
+    font-family: 'DM Serif Display', serif;
+    font-size: 1.25rem;
+    color: var(--blue-900);
+    line-height: 1.3;
+    margin-bottom: 0.75rem;
+  }
+
+  .project-type {
+    display: inline-block;
+    background: var(--blue-50);
+    color: var(--blue-700, var(--blue-800));
+    border: 1px solid var(--blue-100);
+    padding: 0.2rem 0.65rem;
+    border-radius: 2rem;
+    font-size: 0.72rem;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+  }
+
+  .project-body { padding: 1.25rem 2rem 1.5rem; }
+
+  .project-body p {
+    font-size: 0.9rem;
+    color: var(--text-muted);
+    line-height: 1.7;
+    margin-bottom: 1rem;
+  }
+
+  .project-metrics {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin-bottom: 1.2rem;
+  }
+
+  .metric {
+    background: var(--blue-50);
+    color: var(--blue-800);
+    border-radius: 0.5rem;
+    padding: 0.3rem 0.75rem;
+    font-size: 0.78rem;
+    font-weight: 500;
+  }
+
+  .project-tools {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.4rem;
+  }
+
+  .tool-tag {
+    border: 1px solid var(--blue-100);
+    color: var(--text-muted);
+    border-radius: 0.3rem;
+    padding: 0.2rem 0.5rem;
+    font-size: 0.72rem;
+  }
+
+  .add-project-card {
+    border: 2px dashed var(--blue-100);
+    border-radius: 1.25rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 3rem 2rem;
+    text-align: center;
+    cursor: pointer;
+    transition: border-color 0.2s, background 0.2s;
+    min-height: 260px;
+  }
+
+  .add-project-card:hover {
+    border-color: var(--blue-400);
+    background: var(--blue-50);
+  }
+
+  .add-icon {
+    width: 48px; height: 48px;
+    border-radius: 50%;
+    background: var(--blue-50);
+    border: 1px solid var(--blue-100);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.4rem;
+    color: var(--blue-400);
+    margin-bottom: 1rem;
+    transition: background 0.2s;
+  }
+
+  .add-project-card:hover .add-icon {
+    background: var(--blue-100);
+  }
+
+  .add-project-card p {
+    font-size: 0.85rem;
+    color: var(--text-muted);
+    line-height: 1.6;
+    max-width: 200px;
+  }
+
+  .add-project-card strong {
+    display: block;
+    font-size: 0.95rem;
+    color: var(--blue-800);
+    margin-bottom: 0.3rem;
+    font-weight: 500;
+  }
+
+  /* EXPERIENCE */
+  #experience { background: white; }
+
+  .timeline { position: relative; padding-left: 2rem; }
+
+  .timeline::before {
+    content: '';
+    position: absolute;
+    left: 0; top: 8px; bottom: 0;
+    width: 1px;
+    background: var(--blue-100);
+  }
+
+  .timeline-item {
+    position: relative;
+    padding-bottom: 2.5rem;
+    padding-left: 2rem;
+  }
+
+  .timeline-dot {
+    position: absolute;
+    left: -2.4rem; top: 6px;
+    width: 10px; height: 10px;
+    border-radius: 50%;
+    background: var(--blue-400);
+    border: 2px solid white;
+    box-shadow: 0 0 0 2px var(--blue-200);
+  }
+
+  .timeline-meta {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    margin-bottom: 0.4rem;
+    flex-wrap: wrap;
+  }
+
+  .timeline-date {
+    font-size: 0.75rem;
+    color: var(--blue-600);
+    font-weight: 500;
+    background: var(--blue-50);
+    padding: 0.15rem 0.6rem;
+    border-radius: 2rem;
+  }
+
+  .timeline-company {
+    font-size: 0.75rem;
+    color: var(--text-muted);
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+  }
+
+  .timeline-role {
+    font-family: 'DM Serif Display', serif;
+    font-size: 1.15rem;
+    color: var(--blue-900);
+    margin-bottom: 0.75rem;
+  }
+
+  .timeline-desc {
+    font-size: 0.9rem;
+    color: var(--text-muted);
+    line-height: 1.7;
+    margin-bottom: 0.75rem;
+  }
+
+  .timeline-tags { display: flex; flex-wrap: wrap; gap: 0.4rem; }
+
+  .timeline-tag {
+    background: var(--blue-50);
+    color: var(--blue-800);
+    border-radius: 0.3rem;
+    padding: 0.2rem 0.5rem;
+    font-size: 0.72rem;
+    font-weight: 500;
+  }
+
+  /* SKILLS */
+  #skills { background: var(--bg); }
+
+  .skills-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 1.5rem;
+  }
+
+  .skill-category {
+    background: white;
+    border: 1px solid var(--blue-100);
+    border-radius: 1rem;
+    padding: 1.75rem;
+  }
+
+  .skill-icon {
+    width: 40px; height: 40px;
+    border-radius: 0.6rem;
+    background: var(--blue-50);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 1rem;
+    font-size: 1.1rem;
+  }
+
+  .skill-category h3 {
+    font-family: 'DM Serif Display', serif;
+    font-size: 1.05rem;
+    color: var(--blue-900);
+    margin-bottom: 0.75rem;
+  }
+
+  .skill-list {
+    list-style: none;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.4rem;
+  }
+
+  .skill-list li {
+    background: var(--blue-50);
+    border: 1px solid var(--blue-100);
+    color: var(--blue-800);
+    padding: 0.3rem 0.7rem;
+    border-radius: 2rem;
+    font-size: 0.78rem;
+    font-weight: 500;
+  }
+
+  /* CONTACT */
+  #contact {
+    background: var(--blue-900);
+    color: white;
+    text-align: center;
+  }
+
+  #contact .section-label { color: var(--blue-200); }
+  #contact .section-title { color: white; }
+  #contact .section-desc { color: var(--blue-200); max-width: 500px; margin-left: auto; margin-right: auto; }
+
+  .contact-links {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    flex-wrap: wrap;
+  }
+
+  .contact-link {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    background: rgba(255,255,255,0.08);
+    border: 1px solid rgba(255,255,255,0.15);
+    color: white;
+    border-radius: 0.5rem;
+    padding: 0.8rem 1.4rem;
+    text-decoration: none;
+    font-size: 0.9rem;
+    transition: background 0.2s;
+  }
+
+  .contact-link:hover { background: rgba(255,255,255,0.15); }
+
+  /* FOOTER */
+  footer {
+    background: var(--blue-900);
+    border-top: 1px solid rgba(255,255,255,0.08);
+    padding: 1.5rem 4rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: var(--blue-200);
+    font-size: 0.82rem;
+  }
+
+  /* ANIMATIONS */
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(24px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  .hero-content > * {
+    animation: fadeUp 0.6s ease forwards;
+    opacity: 0;
+  }
+
+  .hero-content > *:nth-child(1) { animation-delay: 0.1s; }
+  .hero-content > *:nth-child(2) { animation-delay: 0.2s; }
+  .hero-content > *:nth-child(3) { animation-delay: 0.35s; }
+  .hero-content > *:nth-child(4) { animation-delay: 0.5s; }
+
+  .hero-visual {
+    animation: fadeUp 0.7s ease 0.3s forwards;
+    opacity: 0;
+  }
+
+  /* RESPONSIVE */
+  @media (max-width: 900px) {
+    nav { padding: 1rem 1.5rem; }
+    .nav-links { gap: 1.5rem; }
+    .hero { grid-template-columns: 1fr; padding: 6rem 1.5rem 3rem; }
+    .hero::before { display: none; }
+    .hero-visual { margin-top: 3rem; }
+    section { padding: 4rem 1.5rem; }
+    .about-grid { grid-template-columns: 1fr; gap: 2.5rem; }
+    footer { flex-direction: column; gap: 0.5rem; padding: 1.5rem; }
+  }
+
+  @media (max-width: 600px) {
+    .nav-links { display: none; }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-logo">Noha Ben Chiboub</div>
+  <ul class="nav-links">
+    <li><a href="#about">About</a></li>
+    <li><a href="#projects">Projects</a></li>
+    <li><a href="#experience">Experience</a></li>
+    <li><a href="#skills">Skills</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<section class="hero" id="home">
+  <div class="hero-content">
+    <div class="hero-tag">Marketing Portfolio</div>
+    <h1>Strategy meets<br><em>data-driven</em><br>creativity.</h1>
+    <p class="hero-desc">I'm Noha — a marketing professional specialising in digital strategy, market research, and brand growth. Currently pursuing dual Master's degrees in Business Management and Tourism & Hospitality.</p>
+    <div class="hero-cta">
+      <a href="#projects" class="btn-primary">View Projects</a>
+      <a href="#contact" class="btn-outline">Get in Touch</a>
+    </div>
+  </div>
+  <div class="hero-visual">
+    <div class="hero-card">
+      <div class="hero-avatar">NB</div>
+      <h3>Noha Ben Chiboub</h3>
+      <p class="card-role">Digital Marketing · Brand Strategy · CRM</p>
+      <div class="stat-grid">
+        <div class="stat-box">
+          <span class="stat-num">4</span>
+          <span class="stat-label">Internships</span>
+        </div>
+        <div class="stat-box">
+          <span class="stat-num">3</span>
+          <span class="stat-label">Languages</span>
+        </div>
+        <div class="stat-box">
+          <span class="stat-num">15+</span>
+          <span class="stat-label">Competitors Analysed</span>
+        </div>
+        <div class="stat-box">
+          <span class="stat-num">80</span>
+          <span class="stat-label">UX Improvements</span>
+        </div>
+      </div>
+      <div class="skill-tags">
+        <span class="skill-tag">IBM SPSS</span>
+        <span class="skill-tag">Google Analytics</span>
+        <span class="skill-tag">CRM</span>
+        <span class="skill-tag">Canva</span>
+        <span class="skill-tag">HubSpot</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section id="about">
+  <p class="section-label">About me</p>
+  <div class="about-grid">
+    <div class="about-text">
+      <h2 class="section-title">Marketing professional with a passion for insight-led growth.</h2>
+      <p>I'm a trilingual marketing professional based in Barcelona, with hands-on experience across pharmaceutical, FMCG, agri-export, and financial services industries. My work sits at the intersection of digital strategy, data analysis, and consumer psychology.</p>
+      <p>I combine analytical rigour (IBM SPSS, Google Analytics, CRM segmentation) with creative campaign execution to help brands grow with purpose. Whether it's auditing digital assets, launching new products, or uncovering competitive opportunities, I bring structure and creativity to every challenge.</p>
+      <p>Currently pursuing a dual Master's in Business Management (Marketing major) at Mediterranean School of Business and a Master's in Tourism & Hospitality Management at EADA Business School, Barcelona — building the global perspective that modern marketing demands.</p>
+    </div>
+    <div class="about-aside">
+      <div class="aside-card">
+        <h4>Languages</h4>
+        <ul class="lang-list">
+          <li>Arabic <span class="lang-level">Native</span></li>
+          <li>French <span class="lang-level">Fluent</span></li>
+          <li>English <span class="lang-level">Fluent</span></li>
+          <li>Spanish <span class="lang-level">Intermediate</span></li>
+        </ul>
+      </div>
+      <div class="aside-card">
+        <h4>Education</h4>
+        <ul class="lang-list">
+          <li style="flex-direction: column; align-items: flex-start; gap: 0.15rem;">
+            <span style="font-size: 0.82rem; font-weight: 500; color: var(--blue-900);">MSc Business Management — Marketing</span>
+            <span style="font-size: 0.78rem; color: var(--text-muted);">Mediterranean School of Business · 2024–2026</span>
+          </li>
+          <li style="flex-direction: column; align-items: flex-start; gap: 0.15rem;">
+            <span style="font-size: 0.82rem; font-weight: 500; color: var(--blue-900);">MSc Tourism & Hospitality</span>
+            <span style="font-size: 0.78rem; color: var(--text-muted);">EADA Business School, Barcelona · 2026</span>
+          </li>
+          <li style="flex-direction: column; align-items: flex-start; gap: 0.15rem; border: none;">
+            <span style="font-size: 0.82rem; font-weight: 500; color: var(--blue-900);">BSc Business Management</span>
+            <span style="font-size: 0.78rem; color: var(--text-muted);">Mediterranean School of Business · 2020–2023</span>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PROJECTS -->
+<section id="projects">
+  <p class="section-label">Work & Projects</p>
+  <h2 class="section-title">Selected projects from<br>internships & studies.</h2>
+  <div class="projects-note">
+    ✦ These project cards are ready to be personalised. Replace the descriptions with your actual deliverables, add images or links to decks, and fill in your study projects from MSB.
+  </div>
+
+  <div class="projects-grid">
+
+    <!-- Project 1 -->
+    <div class="project-card">
+      <div class="project-header">
+        <p class="project-company">Medis Laboratories · 2025</p>
+        <h3 class="project-title">Digital Audit & Go-to-Market Strategy</h3>
+        <span class="project-type">Digital Strategy</span>
+      </div>
+      <div class="project-body">
+        <p>Conducted a full competitive benchmarking study across 15+ pharma competitors and audited digital assets to deliver 80 UX improvement recommendations. Developed go-to-market strategies for 3 new product launches.</p>
+        <div class="project-metrics">
+          <span class="metric">15+ competitors analysed</span>
+          <span class="metric">80 UX recommendations</span>
+          <span class="metric">3 product launches</span>
+        </div>
+        <div class="project-tools">
+          <span class="tool-tag">Competitive Analysis</span>
+          <span class="tool-tag">UX Audit</span>
+          <span class="tool-tag">GTM Strategy</span>
+          <span class="tool-tag">Healthcare</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Project 2 -->
+    <div class="project-card">
+      <div class="project-header">
+        <p class="project-company">Cerealis Group · 2024</p>
+        <h3 class="project-title">Multi-Channel Market Strategy & CRM Segmentation</h3>
+        <span class="project-type">Marketing Analytics</span>
+      </div>
+      <div class="project-body">
+        <p>Designed multi-channel strategies across 3 platforms, tracked 5 competitor activities monthly, and managed CRM data to segment audiences into 5 distinct groups. Evaluated product KPIs and identified 10 optimisation opportunities.</p>
+        <div class="project-metrics">
+          <span class="metric">3 platforms</span>
+          <span class="metric">5 audience segments</span>
+          <span class="metric">10 KPI optimisations</span>
+        </div>
+        <div class="project-tools">
+          <span class="tool-tag">CRM</span>
+          <span class="tool-tag">Segmentation</span>
+          <span class="tool-tag">Social Media</span>
+          <span class="tool-tag">Email Marketing</span>
+          <span class="tool-tag">FMCG</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Project 3 -->
+    <div class="project-card">
+      <div class="project-header">
+        <p class="project-company">Boudjebel VACPA · 2022</p>
+        <h3 class="project-title">Export Market Data Model — Date Products</h3>
+        <span class="project-type">Market Research</span>
+      </div>
+      <div class="project-body">
+        <p>Researched and documented 30+ nutritional, cultural and commercial benefits of Deglet Nour dates. Built an Excel data model and PowerPoint presentation with market statistics to support export pitch decks for international buyers.</p>
+        <div class="project-metrics">
+          <span class="metric">30+ data points</span>
+          <span class="metric">Export market focus</span>
+        </div>
+        <div class="project-tools">
+          <span class="tool-tag">Excel</span>
+          <span class="tool-tag">PowerPoint</span>
+          <span class="tool-tag">Market Research</span>
+          <span class="tool-tag">Export Strategy</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Project 4 placeholder -->
+    <div class="project-card">
+      <div class="project-header">
+        <p class="project-company">MSB · Academic Project</p>
+        <h3 class="project-title">Your Study Project Title Here</h3>
+        <span class="project-type">Academic</span>
+      </div>
+      <div class="project-body">
+        <p>Add one of your university projects here — a marketing plan, brand audit, consumer research study, or any group project that showcases your analytical and strategic skills.</p>
+        <div class="project-metrics">
+          <span class="metric">Replace with your metrics</span>
+        </div>
+        <div class="project-tools">
+          <span class="tool-tag">IBM SPSS</span>
+          <span class="tool-tag">Add your tools</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Add project card -->
+    <div class="add-project-card">
+      <div class="add-icon">+</div>
+      <strong>Add another project</strong>
+      <p>Copy the HTML block above to add your next project, internship deliverable, or personal campaign.</p>
+    </div>
+
+  </div>
+</section>
+
+<!-- EXPERIENCE -->
+<section id="experience">
+  <p class="section-label">Experience</p>
+  <h2 class="section-title">Where I've worked.</h2>
+
+  <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: start;">
+    <div class="timeline">
+
+      <div class="timeline-item">
+        <div class="timeline-dot"></div>
+        <div class="timeline-meta">
+          <span class="timeline-date">Jun–Aug 2025</span>
+          <span class="timeline-company">Medis Laboratories</span>
+        </div>
+        <p class="timeline-role">Digital Marketing Assistant</p>
+        <p class="timeline-desc">Strategic diagnosis, competitive benchmarking, digital asset audit (80 UX recommendations), and go-to-market planning for 3 product launches in the pharmaceutical industry.</p>
+        <div class="timeline-tags">
+          <span class="timeline-tag">Digital Strategy</span>
+          <span class="timeline-tag">Pharma</span>
+          <span class="timeline-tag">UX</span>
+        </div>
+      </div>
+
+      <div class="timeline-item">
+        <div class="timeline-dot"></div>
+        <div class="timeline-meta">
+          <span class="timeline-date">Jan–Jun 2024</span>
+          <span class="timeline-company">Cerealis Group</span>
+        </div>
+        <p class="timeline-role">Marketing Assistant</p>
+        <p class="timeline-desc">Multi-channel strategy design, monthly competitor tracking, CRM audience segmentation (5 groups), promotional content creation, and KPI evaluation across Tunisia's leading snacks brand.</p>
+        <div class="timeline-tags">
+          <span class="timeline-tag">CRM</span>
+          <span class="timeline-tag">FMCG</span>
+          <span class="timeline-tag">Campaigns</span>
+        </div>
+      </div>
+
+      <div class="timeline-item">
+        <div class="timeline-dot"></div>
+        <div class="timeline-meta">
+          <span class="timeline-date">Jun–Jul 2022</span>
+          <span class="timeline-company">Boudjebel VACPA</span>
+        </div>
+        <p class="timeline-role">Marketing Data Analyst</p>
+        <p class="timeline-desc">Extracted and documented 30+ product benefits and built a data model with market statistics to support international export pitches for the world's leading Deglet Nour date exporter.</p>
+        <div class="timeline-tags">
+          <span class="timeline-tag">Data Modelling</span>
+          <span class="timeline-tag">Export</span>
+          <span class="timeline-tag">Excel</span>
+        </div>
+      </div>
+
+      <div class="timeline-item">
+        <div class="timeline-dot" style="background: var(--blue-200);"></div>
+        <div class="timeline-meta">
+          <span class="timeline-date">Jul–Aug 2021</span>
+          <span class="timeline-company">BH Invest</span>
+        </div>
+        <p class="timeline-role">Administrative Officer</p>
+        <p class="timeline-desc">Managed 500+ employee files, maintained client securities database, drafted financial certificates, and ensured regulatory compliance for transaction processing.</p>
+        <div class="timeline-tags">
+          <span class="timeline-tag">Finance</span>
+          <span class="timeline-tag">Compliance</span>
+          <span class="timeline-tag">Data Management</span>
+        </div>
+      </div>
+
+    </div>
+
+    <div>
+      <div class="aside-card" style="margin-bottom: 1.5rem;">
+        <h4 style="font-family: 'DM Serif Display', serif; color: var(--blue-800); margin-bottom: 1rem; font-size: 1.05rem;">Certifications & Affiliations</h4>
+        <ul class="lang-list">
+          <li style="flex-direction: column; align-items: flex-start; gap: 0.1rem;">
+            <span style="font-size: 0.85rem; font-weight: 500; color: var(--blue-900);">Social Media Marketing</span>
+            <span style="font-size: 0.78rem; color: var(--text-muted);">HubSpot Academy</span>
+          </li>
+          <li style="flex-direction: column; align-items: flex-start; gap: 0.1rem; border: none;">
+            <span style="font-size: 0.85rem; font-weight: 500; color: var(--blue-900);">Rotaract Movement Member</span>
+            <span style="font-size: 0.78rem; color: var(--text-muted);">4 years · Head of Sponsoring Committee</span>
+          </li>
+        </ul>
+      </div>
+
+      <div class="aside-card">
+        <h4 style="font-family: 'DM Serif Display', serif; color: var(--blue-800); margin-bottom: 1rem; font-size: 1.05rem;">Currently studying</h4>
+        <ul class="lang-list">
+          <li style="flex-direction: column; align-items: flex-start; gap: 0.1rem;">
+            <span style="font-size: 0.85rem; font-weight: 500; color: var(--blue-900);">MSc Tourism & Hospitality Management</span>
+            <span style="font-size: 0.78rem; color: var(--text-muted);">EADA Business School, Barcelona · 2026</span>
+          </li>
+          <li style="flex-direction: column; align-items: flex-start; gap: 0.1rem; border: none;">
+            <span style="font-size: 0.85rem; font-weight: 500; color: var(--blue-900);">MSc Business Management — Marketing</span>
+            <span style="font-size: 0.78rem; color: var(--text-muted);">Mediterranean School of Business · 2024–2026</span>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SKILLS -->
+<section id="skills">
+  <p class="section-label">Skills & Tools</p>
+  <h2 class="section-title">What I bring to the table.</h2>
+  <p class="section-desc">A blend of analytical and creative capabilities built across four industries and two continents.</p>
+
+  <div class="skills-grid">
+    <div class="skill-category">
+      <div class="skill-icon">📊</div>
+      <h3>Analytics & Research</h3>
+      <ul class="skill-list">
+        <li>IBM SPSS Statistics</li>
+        <li>Google Analytics</li>
+        <li>Google Tag Manager</li>
+        <li>Market Research</li>
+        <li>Competitive Benchmarking</li>
+        <li>KPI Tracking</li>
+      </ul>
+    </div>
+
+    <div class="skill-category">
+      <div class="skill-icon">📣</div>
+      <h3>Digital Marketing</h3>
+      <ul class="skill-list">
+        <li>Social Media Strategy</li>
+        <li>Email Marketing</li>
+        <li>Content Creation</li>
+        <li>Campaign Execution</li>
+        <li>UX Auditing</li>
+        <li>GTM Planning</li>
+      </ul>
+    </div>
+
+    <div class="skill-category">
+      <div class="skill-icon">🤝</div>
+      <h3>CRM & Strategy</h3>
+      <ul class="skill-list">
+        <li>CRM Management</li>
+        <li>Audience Segmentation</li>
+        <li>Customer Insights</li>
+        <li>HubSpot</li>
+        <li>Brand Strategy</li>
+        <li>Multi-channel Strategy</li>
+      </ul>
+    </div>
+
+    <div class="skill-category">
+      <div class="skill-icon">🛠</div>
+      <h3>Tools & Software</h3>
+      <ul class="skill-list">
+        <li>Microsoft Excel</li>
+        <li>PowerPoint</li>
+        <li>Word</li>
+        <li>Canva</li>
+        <li>IBM SPSS 20</li>
+        <li>Google Tag Manager</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+  <p class="section-label">Contact</p>
+  <h2 class="section-title">Let's work together.</h2>
+  <p class="section-desc">I'm actively looking for marketing internships. Whether you have a project, a role, or just want to connect — I'd love to hear from you.</p>
+  <div class="contact-links">
+    <a href="mailto:nben2@eada.net" class="contact-link">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
+      nben2@eada.net
+    </a>
+    <a href="tel:+34611764456" class="contact-link">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 13a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.62 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+      +34 611 76 44 56
+    </a>
+    <a href="https://linkedin.com/in/nouha-ben-chiboub-3a48521ba" target="_blank" class="contact-link">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
+      LinkedIn
+    </a>
+    <a href="https://github.com" target="_blank" class="contact-link">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg>
+      GitHub
+    </a>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <span>© 2025 Noha Ben Chiboub · Barcelona, Spain</span>
+  <span>Built for marketing internship applications</span>
+</footer>
+
+</body>
+</html>
